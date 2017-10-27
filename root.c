@@ -12,16 +12,16 @@
 #define PRECISION 0.000001
 
 
-/* 
+/*
  * Funkce pro porovnani dvou cisel s plovouci desetinnou carkou.
  *
  * Pozn: Cisla s plovouci desetinou carkou nelze porovnavat stejne jako cela cisla,
  * protoze jsou presna pouze na nekolik mist!
  */
 int compare(double a, double b) {
-	if (fabs(a - b) < PRECISION) return 0;
-	if ((a - b) < 0) return -1;
-	return 1;
+  if (fabs(a - b) < PRECISION) return 0;
+  if ((a - b) < 0) return -1;
+  return 1;
 }
 
 /*
@@ -30,42 +30,40 @@ int compare(double a, double b) {
  * Toto je jedna z mnoha moznosti, jak se da odmocnina aproximovat.
  */
 void get_root(double square) {
-	int cmp, steps;
-	double guess, jump;
-	bool direction;
+  int cmp, steps;
+  double guess, jump;
+  bool direction;
 
-	jump = square;
-	guess = steps = 0;
-	direction = true;
-	do {
-		printf("%4d %.20f\n", steps, guess);
+  jump = square;
+  guess = steps = 0;
+  direction = true;
+  do {
+    printf("%4d %.20f\n", steps, guess);
 
-		cmp = compare(guess*guess, square);
-		if (cmp == -1) {
-			if (!direction) {
-				jump *= 0.5;
-				direction = true;
-			}
-			guess += jump;
-		}
-		else if (cmp == 1) {
-			if (direction) {
-				jump *= 0.5;
-				direction = false;
-			}
-			guess -= jump;
-		}
-		steps ++;
-	} while (cmp);
+    cmp = compare(guess * guess, square);
+    if (cmp == -1) {
+      if (!direction) {
+        jump *= 0.5;
+        direction = true;
+      }
+      guess += jump;
+    } else if (cmp == 1) {
+      if (direction) {
+        jump *= 0.5;
+        direction = false;
+      }
+      guess -= jump;
+    }
+    steps++;
+  } while (cmp);
 
-	printf("real %.20f\n", sqrt(square));
+  printf("real %.20f\n", sqrt(square));
 }
 
 
 /* main function */
-int main (int argc, char **argv) {
-	
-	get_root(126);
-	
-	return EXIT_SUCCESS;
+int main(int argc, char **argv) {
+  get_root(126);
+
+  return EXIT_SUCCESS;
 }

@@ -19,43 +19,42 @@ bool is_prime(int);
 
 /* Vypise Mersennova prvocisla do zadaneho horniho limitu (nefunguje pro max > 31). */
 void list_mersenne_primes(int max) {
-	int i, candidate;
+  int i, candidate;
 
-	for (i = 1; i < max; i++) {
-		candidate = (2<<i) - 1;
-		if (is_prime(candidate))
-			printf("2^%d-1 = %d\n", i+1, candidate);
-	}
+  for (i = 1; i < max; i++) {
+    candidate = (2 << i) - 1;
+    if (is_prime(candidate))
+      printf("2^%d-1 = %d\n", i + 1, candidate);
+  }
 }
 
 /* Funkce, ktera pouze vrati, jestli je zadane cislo Mersennovo prvocislo a nebo ne. */
 bool is_mersenne_prime(int prime) {
-	double power;
-	
-	power = log2(prime+1);
-	if (power == floor(power))
-		return true;
-	return false;
+  double power;
+
+  power = log2(prime + 1);
+  if (power == floor(power))
+    return true;
+  return false;
 }
 
 
 /* pomocne funkce */
 bool is_prime(int a) {
-	int i;
-	for (i = 2; i <= sqrt(a); i++)
-		if (a % i == 0) return false;
-	return true;
+  int i;
+  for (i = 2; i <= sqrt(a); i++)
+    if (a % i == 0) return false;
+  return true;
 }
 
 /* main function */
 int main(int argc, char* argv[]) {
+  list_mersenne_primes(31);
 
-	list_mersenne_primes(31);
+  printf("%d\n", (int)is_mersenne_prime(7));
+  printf("%d\n", (int)is_mersenne_prime(8));
+  printf("%d\n", (int)is_mersenne_prime(30));
+  printf("%d\n", (int)is_mersenne_prime(127));
 
-	printf("%d\n", (int)is_mersenne_prime(7));
-	printf("%d\n", (int)is_mersenne_prime(8));
-	printf("%d\n", (int)is_mersenne_prime(30));
-	printf("%d\n", (int)is_mersenne_prime(127));
-
-	return EXIT_SUCCESS;
+  return EXIT_SUCCESS;
 }

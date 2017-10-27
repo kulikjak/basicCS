@@ -14,15 +14,15 @@
  * Complexity: O(n*m).
  */
 void naive_matching(char* string, char* pattern) {
-	int i, size, psize;
+  int i, size, psize;
 
-	size = strlen(string);
-	psize = strlen(pattern);
+  size = strlen(string);
+  psize = strlen(pattern);
 
-	for (i = 0; i <= size - psize; i++)
-		if (! strncmp(string + i, pattern, psize))
-			printf("%d ", i);
-	printf("\n");
+  for (i = 0; i <= size - psize; i++)
+    if (!strncmp(string + i, pattern, psize))
+      printf("%d ", i);
+  printf("\n");
 }
 
 /*
@@ -31,33 +31,33 @@ void naive_matching(char* string, char* pattern) {
  * Complexity: O(n*m).
  */
 void naive_matching2(char* string, char* pattern) {
-	int i, j, size, psize;
+  int i, j, size, psize;
 
-	size = strlen(string);
-	psize = strlen(pattern);
+  size = strlen(string);
+  psize = strlen(pattern);
 
-	for (i = 0; i <= size - psize; i++) {
-		for (j = 0; string[i+j] == pattern[j]; j++) {
-			if (j == psize-1)
-				printf("%d ", i);
-		}
-	}
-	printf("\n");
+  for (i = 0; i <= size - psize; i++) {
+    for (j = 0; string[i + j] == pattern[j]; j++) {
+      if (j == psize - 1)
+        printf("%d ", i);
+    }
+  }
+  printf("\n");
 }
 
 /*
  * Algoritmu pro string matching je velike mnozstvi, ale jsou celkem slozite
- * a protoze zde uvadim jen tento jeden - nejjednodussi 
+ * a protoze zde uvadim jen tento jeden - nejjednodussi
  */
 
 
 /* main function */
 int main(int argc, char **argv) {
-	if (argc < 3) 
-		return EXIT_FAILURE;
+  if (argc < 3)
+    return EXIT_FAILURE;
 
-	naive_matching(argv[1], argv[2]);
-	naive_matching2(argv[1], argv[2]);
+  naive_matching(argv[1], argv[2]);
+  naive_matching2(argv[1], argv[2]);
 
-	return EXIT_SUCCESS;
+  return EXIT_SUCCESS;
 }

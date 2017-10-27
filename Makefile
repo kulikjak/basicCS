@@ -16,3 +16,5 @@ all: $(CPROGS) $(CPPPROGS)
 
 clean:
 	rm -f $(CPROGS) $(CPPPROGS)
+
+.PHONY: all clean
