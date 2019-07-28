@@ -49,10 +49,10 @@ public:
   Complex add(Complex a) {
     return Complex(real + a.real, imag + a.imag);
   }
-  Complex diff(Complex a) {
+  Complex sub(Complex a) {
     return Complex(real - a.real, imag - a.imag);
   }
-  Complex multiple(Complex a) {
+  Complex multiply(Complex a) {
     return Complex(real * a.real - imag * a.imag, real * a.imag + imag * a.real);
   }
   Complex divide(Complex a) {
@@ -66,10 +66,10 @@ public:
     return a.add(b);
   }
   friend Complex operator-(Complex a, Complex b) {
-    return a.diff(b);
+    return a.sub(b);
   }
   friend Complex operator*(Complex a, Complex b) {
-    return a.multiple(b);
+    return a.multiply(b);
   }
   friend Complex operator/(Complex a, Complex b) {
     return a.divide(b);
@@ -94,7 +94,7 @@ int main(int argc, char **argv) {
   Complex b(2, 4);
   Complex c, d, e, f;
   c = a.add(b);
-  d = a.diff(b);
+  d = a.sub(b);
   c.print();
   d.print();
 

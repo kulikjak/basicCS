@@ -44,7 +44,7 @@ void factorization(int a) {
 /*
  * Faktorizace
  * Podobne jako prvni algoritmus, pouze nezkousi deleni vsemi cisly, ale pouze prvocisly.
- * Tech mame ulozenych jen par (do 1000), dal se proto pokraduje stejne jako v prvnim algoritmu.
+ * Tech mame ulozenych jen par (do 1000), dal se proto pokracuje stejne jako v prvnim algoritmu.
  */
 void factorization2(int a) {
   int i, remainder;

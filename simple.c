@@ -177,6 +177,7 @@ void intersection_of_intervals(int a1, int a2, int b1, int b2) {
       return;
     }
   }
+  printf("\n");
 }
 
 

@@ -21,7 +21,7 @@ int sum_matrix(int **matrix, int rows, int cols) {
 
 /*
  * Soucet vsech cisel v podmatici zadane levym hornim a pravym spodnim prvkem matice.
- * Pozn: Nema zadne kontroly spravne zadanych hranic. V realnem programu by neuskodili.
+ * Pozn: Nema zadne kontroly spravne zadanych hranic. V realnem programu by neuskodily.
  */
 int sum_matrix_range(int **matrix, int upper, int left, int bottom, int right) {
   int i, j, sum;
